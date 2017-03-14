@@ -1,11 +1,8 @@
 ﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="nerdeyesek.About" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>Title</h2>
 
     <h2 class="text-center">&nbsp;</h2>
-    <h3>Bu sayfa  site hakkında bilgi verecektir.</h3>
-    <p>Use these areas to provide additional information.</p>
-
-    <asp:Button ID="serkan" runat="server" OnClick="serkan_Click"/>
+    <h3>Bu web sitesi</h3>
+    <p> Belirli bir gruptaki kişilerin restoran seçimini demokratikleştirmek ve optimize etmek için tasarlanmıştır. Bu uygulama, belirli bir zaman periyodu içinde kişilerin gitmek istedikleri restoranları oylayıp, gerekli kıstaslar göz önünde bulundurularak bir seçim algoritması oluşturmaktadır.</p>
 </asp:Content>

@@ -24,6 +24,31 @@
   {
        width: 7px;
   }
+
+  .tablestyle1{
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  .s5{
+    border: 1px solid #3a3838;
+    text-align: left;
+    padding: 6px;
+  }
+
+  .buttons1 {
+    background-color: #316c33;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
  
 </style>
 
@@ -37,7 +62,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/logo.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
 <body style="background-color:#DDDDDD">
@@ -76,9 +101,11 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
+                        <li><a runat="server" href="~/Schedule">Periyodik Plan</a></li>
+                        <li><a runat="server" href="~/users">Üyeler</a></li>
                         <li><a runat="server" href="~/Restaurants">Restaurants</a></li>
                         <li><a runat="server" href="~/MemberVotes">Oylama</a></li>
+                        <li><a runat="server" href="~/About">Hakkımızda</a></li>
                     </ul>
                 </div>
             </div>
