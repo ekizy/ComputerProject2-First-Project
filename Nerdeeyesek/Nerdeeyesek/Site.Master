@@ -62,7 +62,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/logo.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
 <body style="background-color:#DDDDDD">
