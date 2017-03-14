@@ -7,7 +7,7 @@
         <table class="style1">
             <tbody><tr>
                 <td class="style2">
-                    Üyeler ve Oyları</td>
+                    Üyeler ve Oylar</td>
                 <td class="style4">
                      Nusr-Et</td>
                 <td class="style4">
