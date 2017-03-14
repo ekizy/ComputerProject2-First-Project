@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Nerdeeyesek {
+namespace nerdeyesek {
     
     
     public partial class Site_Mobile {

@@ -7,7 +7,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Nerdeeyesek
+namespace nerdeyesek
 {
     public partial class SiteMaster : MasterPage
     {
