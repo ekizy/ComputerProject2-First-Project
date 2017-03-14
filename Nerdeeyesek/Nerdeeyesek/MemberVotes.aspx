@@ -1,13 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MemberVotes.aspx.cs" Inherits="nerdeyesek.MemberVotes" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MemberVotes.aspx.cs" Inherits="nerdeyesek.MemberVotes" %>
 
-<!DOCTYPE html>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server" >
 
-<html>
-<head runat="server">
-    <title>Restoran Oylama</title>
-</head>
-<body>
-    <form id="form1" runat="server">
+    <form id="form1" >
     <div>
         <table class="style1">
             <tbody><tr>
@@ -47,22 +42,22 @@
                     Üye 1
                 </td>
                 <td>
-                    <asp:textbox id="Textbox11" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox11" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox12" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox12" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox13" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox13" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox14" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox14" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox15" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox15" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox16" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox16" runat="server" width="150px"></asp:textbox>
                 </td>
             </tr>
             <tr>
@@ -70,22 +65,22 @@
                     Üye 2
                 </td>
                 <td>
-                    <asp:textbox id="Textbox21" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox21" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox22" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox22" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox23" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox23" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox24" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox24" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox25" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox25" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox26" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox26" runat="server" width="150px"></asp:textbox>
                 </td>
             </tr>
             <tr>
@@ -93,22 +88,22 @@
                     Üye 3
                 </td>
                 <td>
-                    <asp:textbox id="Textbox31" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox31" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox32" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox32" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox33" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox33" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox34" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox34" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox35" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox35" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox36" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox36" runat="server" width="150px"></asp:textbox>
                 </td>
             </tr>
             <tr>
@@ -116,22 +111,22 @@
                     Üye 4
                 </td>
                 <td>
-                    <asp:textbox id="Textbox41" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox41" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox42" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox42" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox43" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox43" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox44" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox44" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox45" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox45" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox46" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox46" runat="server" width="150px"></asp:textbox>
                 </td>
             </tr>
             <tr>
@@ -139,22 +134,22 @@
                     Üye 5
                 </td>
                 <td>
-                    <asp:textbox id="Textbox51" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox51" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox52" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox52" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox53" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox53" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox54" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox54" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox55" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox55" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox56" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox56" runat="server" width="150px"></asp:textbox>
                 </td>
             </tr>
             <tr>
@@ -162,22 +157,22 @@
                     Üye 6
                 </td>
                 <td>
-                    <asp:textbox id="Textbox61" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox61" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox62" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox62" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox63" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox63" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox64" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox64" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox65" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox65" runat="server" width="150px"></asp:textbox>
                 </td>
                 <td>
-                    <asp:textbox id="Textbox66" runat="server" width="200px"></asp:textbox>
+                    <asp:textbox id="Textbox66" runat="server" width="150px"></asp:textbox>
                 </td>
             </tr>
             <tr>
@@ -217,26 +212,5 @@
         </tbody></table>
     </div>
     </form>
-</body>
-</html>
-<style type="text/css">
-    .style1
-    {
-        width: 100%;
-    }
-   .style2
-   {
-       color: #FF0000;
-       font-weight: bold;
-       width: 144px;
-   }
-  .style3
-  {
-       width: 144px;
-  }
-  .style4
-  {
-       width: 7px;
-  }
+</asp:Content>
 
-</style>

@@ -13,14 +13,14 @@ namespace nerdeyesek
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string[] array = { "Nusret", "Varuna Gezgin", "Kumbara", "Baltazar", "Heisenberg", "Midpoin" };
+            /*string[] array = { "Nusret", "Varuna Gezgin", "Kumbara", "Baltazar", "Heisenberg", "Midpoin" };
             DataSet  ds= GetData();
 
             GridView1.DataSource = ds;
             GridView1.DataBind();
             
             Repeater1.DataSource = ds;
-            Repeater1.DataBind();
+            Repeater1.DataBind();*/
         }
 
         protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)

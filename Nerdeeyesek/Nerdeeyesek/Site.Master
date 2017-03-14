@@ -6,6 +6,24 @@
     .Restoran th,tr{
         text-align:center;
     }
+     .style1
+    {
+        width: 100%;
+    }
+   .style2
+   {
+       color: #FF0000;
+       font-weight: bold;
+       width: 100px;
+   }
+  .style3
+  {
+       width: 100px;
+  }
+  .style4
+  {
+       width: 7px;
+  }
  
 </style>
 
@@ -59,11 +77,8 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
-                        <!--<li><a runat="server" href="~/Schedule">Schedule</a></li>-->
                         <li><a runat="server" href="~/Restaurants">Restaurants</a></li>
                         <li><a runat="server" href="~/MemberVotes">Oylama</a></li>
-                        <li>Uyeler</li>
                     </ul>
                 </div>
             </div>
