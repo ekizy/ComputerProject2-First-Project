@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
 
 namespace Nerdeeyesek
 {
@@ -11,12 +12,32 @@ namespace Nerdeeyesek
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void useraddbttn_Click(object sender, EventArgs e)
         {
+            useraddbttn.Enabled = false;
+            textname.Visible = true;
+            textsurname.Visible = true;
+            textmail.Visible = true;
+            adduser.Visible = true;
+        }
 
+        protected void adduser_Click(object sender, EventArgs e)
+        {
+            string name = textname.Text.ToString();
+            string surname = textsurname.Text.ToString();
+            string mail = textmail.Text.ToString();
+            string conString=String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;User ID=ekizy;Password=yusufekiz-10");
+            SqlConnection con = new SqlConnection(conString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            con.Open();
+            string query = "INSERT INTO UYELER VALUES ('" + name+"','"+surname+"','" + mail + "');";
+            cmd.CommandText=query;
+            cmd.ExecuteNonQuery();
+            con.Close();
+            Response.Redirect("~/users");
         }
     }
 }

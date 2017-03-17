@@ -15,11 +15,15 @@
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project1DatabaseConnectionString %>" SelectCommand="SELECT [ad], [soyad], [mail] FROM [UYELER]"></asp:SqlDataSource>
     <asp:Repeater ID="Repeater1" runat="server"></asp:Repeater>  
-
                 </td>
             </tr>
-
         </table>
+    </div>
+    <div>
+        <asp:TextBox ID="textname" placeholder="Name" Visible="false" runat="server"></asp:TextBox>
+        <asp:TextBox ID="textsurname" placeholder="Surname" Visible="false" runat="server"></asp:TextBox>
+        <asp:TextBox ID="textmail" placeholder="E-mail" Visible="false" runat="server"></asp:TextBox>
+        <asp:Button ID="adduser" runat="server" Visible="false" OnClick="adduser_Click" Text="+" />
     </div>
     <div>
         <asp:Button CssClass="buttons1" ID="useraddbttn" runat="server" onClick="useraddbttn_Click" Text="Üye Ekle" />
