@@ -6,25 +6,24 @@
     <div class="s5">
         <table class="tablestyle1">
             <tr>
-                <th class="s5">Üye Adı</th>
-                <th class="s5">E-mail</th>
+                <td>
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+        <Columns>
+            <asp:BoundField DataField="ad" HeaderText="ad" SortExpression="ad" />
+            <asp:BoundField DataField="soyad" HeaderText="soyad" SortExpression="soyad" />
+            <asp:BoundField DataField="mail" HeaderText="mail" SortExpression="mail" />
+        </Columns>
+                    </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project1DatabaseConnectionString %>" SelectCommand="SELECT [ad], [soyad], [mail] FROM [UYELER]"></asp:SqlDataSource>
+    <asp:Repeater ID="Repeater1" runat="server"></asp:Repeater>  
+
+                </td>
             </tr>
-            <tr>
-                <td class="s5">Yusuf Ekiz</td>
-                <td class="s5"><a href="mailto:ekizy@itu.edu.tr?Subject=Hello" target="_top">ekizy@itu.edu.tr</a></td>
-            </tr>
-            <tr>
-                <td class="s5">Hilal Gülşen</td>
-                <td class="s5"><a href="mailto:gulsenh@itu.edu.tr?Subject=Hello" target="_top">gulsenh@itu.edu.tr</a></td>
-            </tr>
-            <tr>
-                <td class="s5">Serkan Bekir</td>
-                <td class="s5"><a href="mailto:bekir@itu.edu.tr?Subject=Hello" target="_top">bekir@itu.edu.tr</a></td>
-            </tr>
+
         </table>
     </div>
     <div>
-        <asp:Button class="buttons1" ID="useraddbttn" runat="server" onClick="useraddbttn_Click" Text="Üye Ekle" />
+        <asp:Button CssClass="buttons1" ID="useraddbttn" runat="server" onClick="useraddbttn_Click" Text="Üye Ekle" />
     </div>
 
  </asp:Content>
