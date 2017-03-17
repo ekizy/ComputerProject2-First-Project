@@ -27,9 +27,13 @@
         
  </div>  
     
-    <div style="height: 100px;">
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+    <div  style="height: 100px;margin-left:320px;">
+        <asp:TextBox  ID="TextBox1"  placeholder="Ad" runat="server" Visible="false" ></asp:TextBox>
+        <asp:TextBox  ID="TextBox2" placeholder="Soyad" runat="server" Visible="false" ></asp:TextBox>
+        <asp:TextBox  ID="TextBox3" placeholder="E-mail"  runat="server" Visible="false" ></asp:TextBox>
+
+        <asp:Button ID="Button2" style="margin-left:210px;" runat="server" Text=" Yeni Restoran Ekle" OnClick="Button2_Click" />
+        <asp:Button ID="Button1" runat="server" Text="Ekle" OnClick="Button1_Click" Visible="false" />
         </div>
      
  </asp:Content>

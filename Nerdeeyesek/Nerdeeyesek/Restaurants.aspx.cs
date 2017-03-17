@@ -7,13 +7,14 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 
+
 namespace nerdeyesek
 {
     public partial class Restaurants : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -21,32 +22,33 @@ namespace nerdeyesek
 
         }
 
-        private DataSet GetData()
-        {
-            string connectionString = String.Format(@"Data Source=(localdb)\v11.0;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            using(SqlConnection sqlConnection1 = new SqlConnection(connectionString))
-            {
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM RESTAURANTS", sqlConnection1);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                return ds;
-            }
-
-        }
+  
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            string ad = TextBox1.Text.ToString();
+            string ulasimtipi = TextBox2.Text.ToString();
+            string havayaduyarlilik = TextBox3.Text.ToString();
+
             string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             SqlConnection con = new SqlConnection(conString);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            string value = TextBox1.Text.ToString();
-            //string command = "INSERT INTO RESTORANLAR VALUES ( " + value ;
-            string command = "SELECT * FROM RESTORANLAR";
+            string command = "INSERT INTO RESTORANLAR VALUES('"+ad+"','"+ulasimtipi+"','"+havayaduyarlilik+"');";
             con.Open();
             cmd.CommandText = command;
             cmd.ExecuteNonQuery();
             con.Close();
+            Response.Redirect("~/Restaurants");
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Button1.Visible = true;
+            TextBox1.Visible = true;
+            TextBox2.Visible = true;
+            TextBox3.Visible = true;
+            Button2.Visible = false;
         }
   
  
