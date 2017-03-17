@@ -26,7 +26,10 @@
   
         
  </div>  
+    
     <div style="height: 100px;">
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
         </div>
      
  </asp:Content>

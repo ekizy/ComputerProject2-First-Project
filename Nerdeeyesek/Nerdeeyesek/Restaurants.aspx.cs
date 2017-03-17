@@ -13,14 +13,7 @@ namespace nerdeyesek
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*string[] array = { "Nusret", "Varuna Gezgin", "Kumbara", "Baltazar", "Heisenberg", "Midpoin" };
-            DataSet  ds= GetData();
-
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
             
-            Repeater1.DataSource = ds;
-            Repeater1.DataBind();*/
         }
 
         protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -39,6 +32,21 @@ namespace nerdeyesek
                 return ds;
             }
 
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            SqlConnection con = new SqlConnection(conString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            string value = TextBox1.Text.ToString();
+            //string command = "INSERT INTO RESTORANLAR VALUES ( " + value ;
+            string command = "SELECT * FROM RESTORANLAR";
+            con.Open();
+            cmd.CommandText = command;
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
   
  
