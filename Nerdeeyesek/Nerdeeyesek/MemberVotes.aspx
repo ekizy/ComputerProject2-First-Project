@@ -5,13 +5,13 @@
     <form id="form1" >
     <div>
         <table class="style1">
-            <tr>
+            <td>
                 <th>
                     <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1"></asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project1DatabaseConnectionString %>" SelectCommand="SELECT AD FROM [RESTORANLAR]"></asp:SqlDataSource>
                     <asp:Repeater ID="Repeater1" runat="server"></asp:Repeater>
                 </th>
-                </tr>
+                </td>
             <tr>
                 <td class="style3">
                      </td>
