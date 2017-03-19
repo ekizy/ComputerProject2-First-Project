@@ -20,6 +20,12 @@
   {
        width: 100px;
   }
+  tbody:before {
+    content: "-";
+    display: block;
+    line-height: 1em;
+    color: transparent;
+}
   .style4
   {
        width: 7px;
