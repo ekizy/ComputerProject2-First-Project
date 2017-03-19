@@ -5,22 +5,13 @@
     <form id="form1" >
     <div>
         <table class="style1">
-            <tbody><tr>
-                <td class="style2">
-                    Üyeler ve Oylar</td>
-                <td class="style4">
-                     Nusr-Et</td>
-                <td class="style4">
-                     Varuna Gezgin</td>
-                <td class="style4">
-                     Kumbara</td>
-                <td class="style4">
-                     Baltazar</td>
-                <td class="style4">
-                     Heisenberg</td>
-                <td class="style4">
-                     Midpoint</td>
-            </tr>
+            <tr>
+                <th>
+                    <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1"></asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project1DatabaseConnectionString %>" SelectCommand="SELECT AD FROM [RESTORANLAR]"></asp:SqlDataSource>
+                    <asp:Repeater ID="Repeater1" runat="server"></asp:Repeater>
+                </th>
+                </tr>
             <tr>
                 <td class="style3">
                      </td>
@@ -209,7 +200,7 @@
                     <asp:label id="lblHata" runat="server" forecolor="Red"></asp:label>
                 </td>
             </tr>
-        </tbody></table>
+        </table>
     </div>
     </form>
 </asp:Content>
