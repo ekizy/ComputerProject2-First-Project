@@ -101,15 +101,16 @@ namespace nerdeyesek
                    Panel1.Controls.Add(tb);
                    counter++;
                }
-               Panel1.Controls.Add(new Literal() { ID = "row", Text = "<br/>" });
+               Panel1.Controls.Add(new Literal() { ID = "row"+counter.ToString(), Text = "<br/>" });
             }
         }
 
 
         protected void btnAddVotes_Click(object sender, EventArgs e)
         {
-           TextBox t1=(TextBox) FindControl("TextBox0");
-           t1.Text = "asd";
+            TextBox tb = (TextBox) Panel1.FindControl("TextBox0");
+            tb.Text = "asd";
+            return;
         }
 
 
