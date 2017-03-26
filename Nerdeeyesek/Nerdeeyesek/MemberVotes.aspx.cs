@@ -11,6 +11,7 @@ namespace nerdeyesek
 {
     public partial class MemberVotes : System.Web.UI.Page
     {
+        public int counter = 0;
         protected string [] restoranlar()
         {
             string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
@@ -57,10 +58,60 @@ namespace nerdeyesek
             con.Close();
             return uyeler;
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-          
-            
+            initPage();
         }
+
+        protected void initPage()
+        {
+            int counter = 0;
+
+            Label lbl1 = new Label();
+            lbl1.Width = 100;
+            lbl1.Font.Bold = true;
+            lbl1.Visible = true;
+            Panel1.Controls.Add(lbl1);
+
+            foreach (string item1 in this.restoranlar())
+            {
+                Label lbl = new Label();
+                lbl.Width = 100;
+                lbl.Text = item1;
+                lbl.Font.Bold = true;
+                Panel1.Controls.Add(lbl);
+            }
+            Panel1.Controls.Add(new Literal() { ID = "row", Text = "<br/>" });
+           foreach(string item in this.uyeler())
+            {
+                Label lbl = new Label();
+                lbl.Width = 100;
+                lbl.Text = item;
+                lbl.Font.Bold = true;
+                lbl.Visible = true;
+                Panel1.Controls.Add(lbl);
+               
+               foreach(string item1 in this.restoranlar())
+               {
+                   TextBox tb= new TextBox();
+                   tb.Width = 100;
+                   string id = "TextBox" + counter.ToString();
+                   tb.ID = id;
+                   Panel1.Controls.Add(tb);
+                   counter++;
+               }
+               Panel1.Controls.Add(new Literal() { ID = "row", Text = "<br/>" });
+            }
+        }
+
+
+        protected void btnAddVotes_Click(object sender, EventArgs e)
+        {
+           TextBox t1=(TextBox) FindControl("TextBox0");
+           t1.Text = "asd";
+        }
+
+
     }
 }

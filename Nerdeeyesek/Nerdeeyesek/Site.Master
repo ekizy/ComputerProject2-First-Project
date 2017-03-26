@@ -72,7 +72,7 @@
 
 </head>
 <body style="background-color:#DDDDDD">
-   <form runat="server">
+   <form id="form" runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
