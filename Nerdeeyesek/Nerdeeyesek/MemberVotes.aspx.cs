@@ -12,7 +12,7 @@ namespace nerdeyesek
     public partial class MemberVotes : System.Web.UI.Page
     {
         public int counter = 0;
-        protected string [] restoranlar()
+        protected string[] restoranlar()
         {
             string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             SqlConnection con = new SqlConnection(conString);
@@ -83,7 +83,7 @@ namespace nerdeyesek
                 Panel1.Controls.Add(lbl);
             }
             Panel1.Controls.Add(new Literal() { ID = "row", Text = "<br/>" });
-           foreach(string item in this.uyeler())
+            foreach (string item in this.uyeler())
             {
                 Label lbl = new Label();
                 lbl.Width = 100;
@@ -91,31 +91,42 @@ namespace nerdeyesek
                 lbl.Font.Bold = true;
                 lbl.Visible = true;
                 Panel1.Controls.Add(lbl);
-               
-               foreach(string item1 in this.restoranlar())
-               {
-                   TextBox tb= new TextBox();
-                   tb.Width = 100;
-                   string id = "TextBox" + counter.ToString();
-                   tb.ID = id;
-                   Panel1.Controls.Add(tb);
-                   counter++;
-               }
-               Panel1.Controls.Add(new Literal() { ID = "row"+counter.ToString(), Text = "<br/>" });
+
+                foreach (string item1 in this.restoranlar())
+                {
+                    TextBox tb = new TextBox();
+                    tb.Width = 100;
+                    string id = "TextBox" + counter.ToString();
+                    tb.ID = id;
+                    Panel1.Controls.Add(tb);
+                    counter++;
+                }
+                Panel1.Controls.Add(new Literal() { ID = "row" + counter.ToString(), Text = "<br/>" });
             }
         }
 
 
         protected void btnAddVotes_Click(object sender, EventArgs e)
         {
+            string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            SqlConnection con = new SqlConnection(conString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            con.Open();
             int counter = 0;
             List<double> list = new List<double>();
             list = calculateAverage();
-            foreach (double item in list)
+            List<int> idlist = new List<int>();
+            idlist = getIds();
+            for (int i = 0; i < list.Count; i++)
             {
-                string id = "TextBox" + counter.ToString();
-                TextBox tb = (TextBox)Panel1.FindControl(id);
-                tb.Text = Convert.ToString(item);
+                int id = idlist[counter];
+                int tam = (int)Math.Floor(list[i]);
+                double remain = list[i] - Math.Floor(list[i]);
+                float ondalik = Convert.ToSingle(remain);
+                string firstCommand = "UPDATE PUANLAR SET tampuan='" + tam + "',ondalikpuan='" + ondalik + "' WHERE restoranid='" + id + "';";
+                cmd.CommandText = firstCommand;
+                cmd.ExecuteNonQuery();
                 counter++;
             }
             return;
@@ -151,7 +162,26 @@ namespace nerdeyesek
             }
             return averageList;
         }
+        protected List<int> getIds()
+        {
+            string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            List<int> ids = new List<int>();
+            using (var con = new SqlConnection(conString))
+            {
+                string query = "SELECT id FROM RESTORANLAR;";
+                var cmd = new SqlCommand(query, con);
+                cmd.CommandType = CommandType.Text;
+                con.Open();
+                using (SqlDataReader objReader = cmd.ExecuteReader())
+                {
+                    while (objReader.Read())
+                    {
+                        ids.Add(objReader.GetInt32(objReader.GetOrdinal("id")));
+                    }
 
-
+                }
+            }
+            return ids;
+        }
     }
 }
