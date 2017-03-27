@@ -29,6 +29,7 @@ namespace nerdeyesek
             string ad = TextBox1.Text.ToString();
             string ulasimtipi = TextBox2.Text.ToString();
             string havayaduyarlilik = TextBox3.Text.ToString();
+            int id = 0;
 
             string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             SqlConnection con = new SqlConnection(conString);
@@ -37,6 +38,13 @@ namespace nerdeyesek
             string command = "INSERT INTO RESTORANLAR VALUES('"+ad+"','"+ulasimtipi+"','"+havayaduyarlilik+"');";
             con.Open();
             cmd.CommandText = command;
+            cmd.ExecuteNonQuery();
+            string secondCommand = "SELECT id FROM RESTORANLAR WHERE ad='"+ad+"';";
+            cmd.CommandText = secondCommand;
+            id= (int) cmd.ExecuteScalar();
+
+            string thirdCommand = "INSERT INTO PUANLAR VALUES("+id.ToString()+",0,0);";
+            cmd.CommandText = thirdCommand;
             cmd.ExecuteNonQuery();
             con.Close();
             Response.Redirect("~/Restaurants");
