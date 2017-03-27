@@ -108,9 +108,48 @@ namespace nerdeyesek
 
         protected void btnAddVotes_Click(object sender, EventArgs e)
         {
-            TextBox tb = (TextBox) Panel1.FindControl("TextBox0");
-            tb.Text = "asd";
+            int counter = 0;
+            List<double> list = new List<double>();
+            list = calculateAverage();
+            foreach (double item in list)
+            {
+                string id = "TextBox" + counter.ToString();
+                TextBox tb = (TextBox)Panel1.FindControl(id);
+                tb.Text = Convert.ToString(item);
+                counter++;
+            }
             return;
+        }
+
+        protected List<double> calculateAverage()
+        {
+            string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            SqlConnection con = new SqlConnection(conString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            con.Open();
+            string firstCommand = "SELECT COUNT(distinct ad) FROM RESTORANLAR;";
+            cmd.CommandText = firstCommand;
+            int restoranSayisi = (int)cmd.ExecuteScalar();
+            string secondCommand = "SELECT COUNT(distinct id) FROM UYELER;";
+            cmd.CommandText = secondCommand;
+            int uyeSayisi = (int)cmd.ExecuteScalar();
+            double total = 0;
+            List<double> averageList = new List<double>();
+
+            for (int i = 0; i < restoranSayisi; i++)
+            {
+                for (int j = i; j <= (uyeSayisi - 1) * restoranSayisi + i; j = j + uyeSayisi)
+                {
+                    string id = "TextBox" + j.ToString();
+                    TextBox tb = (TextBox)Panel1.FindControl(id);
+                    total = total + Convert.ToDouble(tb.Text);
+                }
+                total = total / uyeSayisi;
+                averageList.Add(total);
+                total = 0;
+            }
+            return averageList;
         }
 
 
