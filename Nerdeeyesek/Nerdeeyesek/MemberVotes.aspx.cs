@@ -152,7 +152,7 @@ namespace nerdeyesek
 
             for (int i = 0; i < restoranSayisi; i++)
             {
-                for (int j = i; j <= (uyeSayisi - 1) * restoranSayisi + i; j = j + uyeSayisi)
+                for (int j = i; j <= (uyeSayisi - 1) * restoranSayisi + i; j = j + restoranSayisi)
                 {
                     string id = "TextBox" + j.ToString();
                     TextBox tb = (TextBox)Panel1.FindControl(id);
