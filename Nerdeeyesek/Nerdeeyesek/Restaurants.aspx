@@ -32,8 +32,8 @@
         <asp:TextBox  ID="TextBox2" placeholder="Ulasim tipi" runat="server" Visible="false" ></asp:TextBox>
         <asp:TextBox  ID="TextBox3" placeholder="Havaya duyarlilik"  runat="server" Visible="false" ></asp:TextBox>
 
-        <asp:Button ID="Button2" style="margin-left:210px;" runat="server" Text=" Yeni Restoran Ekle" OnClick="Button2_Click" />
-        <asp:Button ID="Button1" runat="server" Text="Ekle" OnClick="Button1_Click" Visible="false" />
+        <asp:Button ID="Button2" CssClass="btn btn-primary" style="margin-left:210px;" runat="server" Text=" Yeni Restoran Ekle" OnClick="Button2_Click" />
+        <asp:Button ID="Button1" CssClass="btn btn-success" runat="server" Text="Ekle" OnClick="Button1_Click" Visible="false" />
         </div>
      
  </asp:Content>

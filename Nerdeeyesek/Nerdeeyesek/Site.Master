@@ -104,7 +104,7 @@
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/Schedule">Periyodik Plan</a></li>
                         <li><a runat="server" href="~/users">Üyeler</a></li>
-                        <li><a runat="server" href="~/Restaurants">Restaurants</a></li>
+                        <li><a runat="server" href="~/Restaurants">Restoranlar</a></li>
                         <li><a runat="server" href="~/MemberVotes">Oylama</a></li>
                         <li><a runat="server" href="~/About">Hakkımızda</a></li>
                     </ul>
