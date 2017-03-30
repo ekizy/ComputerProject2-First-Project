@@ -12,8 +12,6 @@ namespace nerdeyesek
 {
     public partial class MemberVotes : System.Web.UI.Page
     {
-        public int counter = 0;
-        public bool isVoted=false;
         protected string[] restoranlar()
         {
             string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
@@ -68,48 +66,75 @@ namespace nerdeyesek
 
         protected void initPage()
         {
-            Label lbl1 = new Label();
-            lbl1.Width = 100;
-            lbl1.Font.Bold = true;
-            lbl1.Visible = true;
-            Panel1.Controls.Add(lbl1);
+            int counter = 0;
+            string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            SqlConnection con = new SqlConnection(conString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            con.Open();
+            string command = "SELECT distinct isVoted FROM RESTORANLAR ";
+            cmd.CommandText = command;
+            int isVoted = (int)cmd.ExecuteScalar();
 
-            foreach (string item1 in this.restoranlar())
-            {
-                Label lbl = new Label();
-                lbl.Width = 100;
-                lbl.Text = item1;
-                lbl.Font.Bold = true;
-                Panel1.Controls.Add(lbl);
-            }
-            Panel1.Controls.Add(new Literal() { ID = "row", Text = "<br/>" });
-            foreach (string item in this.uyeler())
-            {
-                Label lbl = new Label();
-                lbl.Width = 100;
-                lbl.Text = item;
-                lbl.Font.Bold = true;
-                lbl.Visible = true;
-                Panel1.Controls.Add(lbl);
+                Label lbl1 = new Label();
+                lbl1.Width = 100;
+                lbl1.Font.Bold = true;
+                lbl1.Visible = true;
+                Panel1.Controls.Add(lbl1);
 
                 foreach (string item1 in this.restoranlar())
                 {
-                    TextBox tb = new TextBox();
-                    tb.Width = 100;
-                    string id = "TextBox" + counter.ToString();
-                    tb.ID = id;
-                    Panel1.Controls.Add(tb);
-                    counter++;
+                    Label lbl = new Label();
+                    lbl.Width = 100;
+                    lbl.Text = item1;
+                    lbl.Font.Bold = true;
+                    if (isVoted != 0) lbl.Visible = false; 
+                    Panel1.Controls.Add(lbl);
                 }
-                Panel1.Controls.Add(new Literal() { ID = "row" + counter.ToString(), Text = "<br/>" });
-            }
-            string accuweather = new WebClient().DownloadString("http://apidev.accuweather.com/currentconditions/v1/318251.json?language=en&apikey=hoArfRosT1215");
-            bool isClear = accuweather.Contains("Clear");
-            if (isClear)
-            {
-                TextBox tb = (TextBox)Panel1.FindControl("TextBox0");
-                tb.Text = "Clear";
-            }
+                Panel1.Controls.Add(new Literal() { ID = "row", Text = "<br/>" });
+                foreach (string item in this.uyeler())
+                {
+                    Label lbl = new Label();
+                    lbl.Width = 100;
+                    lbl.Text = item;
+                    lbl.Font.Bold = true;
+                    lbl.Visible = true;
+                    if (isVoted != 0) lbl.Visible = false; 
+                    Panel1.Controls.Add(lbl);
+
+                    foreach (string item1 in this.restoranlar())
+                    {
+                        TextBox tb = new TextBox();
+                        tb.Width = 100;
+                        string id = "TextBox" + counter.ToString();
+                        tb.ID = id;
+                        if (isVoted != 0) tb.Visible = false; 
+                        Panel1.Controls.Add(tb);
+                        counter++;
+                    }
+                    Panel1.Controls.Add(new Literal() { ID = "row" + counter.ToString(), Text = "<br/>" });
+                }
+                string accuweather = new WebClient().DownloadString("http://apidev.accuweather.com/currentconditions/v1/318251.json?language=en&apikey=hoArfRosT1215");
+                bool isClear = accuweather.Contains("Clear");
+                if (isClear)
+                {
+                    TextBox tb = (TextBox)Panel1.FindControl("TextBox0");
+                   // tb.Text = "Clear";
+                }
+                string secondCommand = "UPDATE RESTORANLAR SET isVoted=1;";
+                cmd.CommandText = secondCommand;
+                cmd.ExecuteNonQuery();
+                if (isVoted != 0)
+                {
+                    btnAddVotes.Visible = false;
+                    GridView1.Visible = true;
+                }
+                else
+                {
+                    GridView1.Visible = false;
+                }
+
+            
         }
 
 
@@ -137,6 +162,11 @@ namespace nerdeyesek
                 cmd.ExecuteNonQuery();
                 counter++;
             }
+
+            string secondCommand = "UPDATE RESTORANLAR SET isVoted=1;";
+            cmd.CommandText = secondCommand;
+            cmd.ExecuteNonQuery();
+            con.Close();
             
             Response.Redirect("~/");
             return;
