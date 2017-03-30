@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
-using System.Net;
 
 namespace nerdeyesek
 {
@@ -113,13 +112,6 @@ namespace nerdeyesek
                         counter++;
                     }
                     Panel1.Controls.Add(new Literal() { ID = "row" + counter.ToString(), Text = "<br/>" });
-                }
-                string accuweather = new WebClient().DownloadString("http://apidev.accuweather.com/currentconditions/v1/318251.json?language=en&apikey=hoArfRosT1215");
-                bool isClear = accuweather.Contains("Clear");
-                if (isClear)
-                {
-                    TextBox tb = (TextBox)Panel1.FindControl("TextBox0");
-                   // tb.Text = "Clear";
                 }
                 string secondCommand = "UPDATE RESTORANLAR SET isVoted=1;";
                 cmd.CommandText = secondCommand;

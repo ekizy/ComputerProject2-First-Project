@@ -11,10 +11,10 @@ namespace Nerdeeyesek
         public string ad;
         public string duyarlilik;
         public int tamPuan;
-        public float ondalikPuan;
+        public double ondalikPuan;
         public string ulasimTuru;
         
-        public Restoran (int id, string ad,string duyarlilik, int tamPuan,float ondalikPuan,string ulasimTuru)
+        public Restoran (int id, string ad,string duyarlilik, int tamPuan,double ondalikPuan,string ulasimTuru)
         {
             this.id = id;
             this.ad = ad;
@@ -22,6 +22,10 @@ namespace Nerdeeyesek
             this.tamPuan = tamPuan;
             this.ondalikPuan = ondalikPuan;
             this.ulasimTuru = ulasimTuru;
+        }
+        public Restoran()
+        {
+
         }
     }
 }

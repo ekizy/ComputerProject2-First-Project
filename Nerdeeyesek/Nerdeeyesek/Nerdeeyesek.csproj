@@ -298,6 +298,7 @@
     <Compile Include="Restaurants.aspx.designer.cs">
       <DependentUpon>Restaurants.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Restoran.cs" />
     <Compile Include="Schedule.aspx.cs">
       <DependentUpon>Schedule.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
