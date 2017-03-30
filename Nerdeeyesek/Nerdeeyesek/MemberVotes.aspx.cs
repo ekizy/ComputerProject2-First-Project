@@ -13,6 +13,7 @@ namespace nerdeyesek
     public partial class MemberVotes : System.Web.UI.Page
     {
         public int counter = 0;
+        public bool isVoted=false;
         protected string[] restoranlar()
         {
             string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
@@ -67,8 +68,6 @@ namespace nerdeyesek
 
         protected void initPage()
         {
-            int counter = 0;
-
             Label lbl1 = new Label();
             lbl1.Width = 100;
             lbl1.Font.Bold = true;
@@ -138,6 +137,7 @@ namespace nerdeyesek
                 cmd.ExecuteNonQuery();
                 counter++;
             }
+            
             Response.Redirect("~/");
             return;
         }

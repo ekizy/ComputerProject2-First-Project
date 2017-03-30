@@ -35,7 +35,7 @@ namespace nerdeyesek
             SqlConnection con = new SqlConnection(conString);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            string command = "INSERT INTO RESTORANLAR VALUES('"+ad+"','"+ulasimtipi+"','"+havayaduyarlilik+"');";
+            string command = "INSERT INTO RESTORANLAR VALUES('"+ad+"','"+ulasimtipi+"','"+havayaduyarlilik+"',0);";
             con.Open();
             cmd.CommandText = command;
             cmd.ExecuteNonQuery();
