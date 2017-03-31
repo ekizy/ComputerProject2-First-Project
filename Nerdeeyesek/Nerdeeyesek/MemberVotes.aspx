@@ -28,5 +28,11 @@
         </table
             </div>
     </div>
+        <style>
+        body{
+            background-image:url(https://static.pexels.com/photos/121627/pexels-photo-121627.jpeg);
+            background-size:cover;
+        }
+    </style>
 </asp:Content>
 

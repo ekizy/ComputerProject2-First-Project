@@ -5,7 +5,7 @@
     <h2>Gidilecek restoranlar</h2>
 
     <div class="s5">
-        <table  class="tablestyle1">
+        <table  class="tablestyle1" style="background-color:papayawhip">
             <tr class="s6">
                 <th class="s5">Gün</th>
                 <th class="s5">Restoran adı</th>
@@ -51,5 +51,10 @@
 
         </table>
     </div>
-
+    <style>
+        body{
+            background-image:url(https://static.pexels.com/photos/67468/pexels-photo-67468.jpeg);
+            background-size:cover;
+        }
+    </style>
  </asp:Content>

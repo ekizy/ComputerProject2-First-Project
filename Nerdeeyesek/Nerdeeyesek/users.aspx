@@ -2,11 +2,11 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server" >
 <%--  --%>
-    <div style="height: 286px;margin-top: 100px;margin-left:300px;">
+    <div style="height: 286px;margin-top: 70px;margin-left:507px;">
         <table class="tablestyle1">
             <tr>
                 <td>
-    <asp:GridView ID="GridView1"  CssClass="Restoran" runat="server" Height="267px"  Width="628px" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+    <asp:GridView ID="GridView1"  CssClass="Restoran" runat="server" Height="267px"  Width="600px" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
         <Columns>
             <asp:BoundField DataField="ad" HeaderText="ad" SortExpression="ad" />
             <asp:BoundField  DataField="soyad" HeaderText="soyad" SortExpression="soyad" />
@@ -28,5 +28,11 @@
     <div>
         <asp:Button CssClass="buttons1" ID="useraddbttn" runat="server" onClick="useraddbttn_Click" Text="Üye Ekle" />
     </div>
-
+    <style>
+        body{
+            background-image:url(https://static.pexels.com/photos/6372/coffee-smartphone-desk-pen.jpg);
+            background-size:cover;
+        }
+    </style>
+    
  </asp:Content>
