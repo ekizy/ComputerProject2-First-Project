@@ -24,6 +24,7 @@ namespace Nerdeeyesek
             cmd.CommandText = firstCommand;
             int restoranSayisi = (int)cmd.ExecuteScalar();
             Restoran[] restoranlar = new Restoran[restoranSayisi];
+            Restoran[] restoranYedek = new Restoran[restoranSayisi];
             string secondCommand = "SELECT RESTORANLAR.ID,AD,havayaduyarlilik,tampuan,ondalikpuan,ulasimtipi FROM RESTORANLAR JOIN PUANLAR ON PUANLAR.RESTORANID=RESTORANLAR.ID ORDER BY tampuan desc";
             cmd.CommandText = secondCommand;
             SqlDataReader reader = cmd.ExecuteReader();
@@ -32,6 +33,9 @@ namespace Nerdeeyesek
             {
                 restoranlar[counter] = new Restoran(reader.GetInt32(0), reader.GetString(1),
                     reader.GetString(2),reader.GetInt32(3), 
+                    reader.GetDouble(4), reader.GetString(5));
+                restoranYedek[counter] = new Restoran(reader.GetInt32(0), reader.GetString(1),
+                    reader.GetString(2), reader.GetInt32(3),
                     reader.GetDouble(4), reader.GetString(5));
                 counter++;
             }
@@ -64,20 +68,107 @@ namespace Nerdeeyesek
             { /*önceki güne bak
               maxDay'in dbden çek restoran bilgilerini kaydet ve olasılıklardan sil. Arabalıysa 
               arabalı olasılıkları da sil.*/
-                if(maxDay>=2)
+                string fourthCommand = "SELECT AD FROM TAKVIM JOIN RESTORANLAR ON TAKVIM.RESTORANID=RESTORANLAR.ID WHERE TAKVIM.CYCLEDAY=" 
+                    + maxDay.ToString() + ";";
+                cmd.CommandText = fourthCommand;
+                string ad = (string)cmd.ExecuteScalar();
+                for (int i = 0; i < restoranlar.Length; i++)
                 {
-                    //2 önceki güne bak arabalıysa. Arabalı olasılıkları sil.
-
-                    //önce mekanı puana göre seç. 
-                    // havaya hassas değilse git.
-                    // havaya hassassa havaya bak güzelse git
-                        // hava güzel değilse yeni opsiyon bak.
+                    if (String.Equals(ad, restoranlar[i].ad, StringComparison.OrdinalIgnoreCase))
+                    {
+                        restoranlar[i] = null;
+                        break;
+                    }
                 }
-                    
-            } //mekanı seçtik.
-            // mekanı cycle tabloya ekle. id,gerçekgün,restoranid,cyclegünü
-            //mekanın puanını puanlar tablosundan 1 azalt.
-            //task scheduler işi var bi de.
+            }
+            if(maxDay>=2)
+            {
+                string fifthCommand = "SELECT ULASIMTIPI FROM TAKVIM JOIN RESTORANLAR ON TAKVIM.RESTORANID=RESTORANLAR.ID WHERE (TAKVIM.CYCLEDAY="
+                    + (maxDay-1).ToString()+" OR TAKVIM.CYCLEDAY=" + maxDay.ToString()+");";
+                cmd.CommandText = fifthCommand;
+                string [] ulasimtipleri=new string[2];
+                 SqlDataReader reader1 = cmd.ExecuteReader();
+                int counter1 = 0;
+            while (reader1.Read())
+            {
+                ulasimtipleri[counter1]=reader1.GetString(0);
+                counter1++;
+            }
+            reader1.Close();
+            if(String.Equals("Araba",ulasimtipleri[0],StringComparison.OrdinalIgnoreCase)
+                ||String.Equals("Araba",ulasimtipleri[1],StringComparison.OrdinalIgnoreCase))
+            {
+                for (int j = 0; j < restoranlar.Length; j++)
+                {
+                    if (restoranlar[j] != null)
+                    {
+                        if (String.Equals("Araba", restoranlar[j].ulasimTuru, 
+                            StringComparison.OrdinalIgnoreCase)
+                         )
+                        {
+                            restoranlar[j] = null;
+                        }
+                    }
+                }
+            }
+              //2 önceki güne bak arabalıysa. Arabalı olasılıkları sil.
+            }
+            if(isRain || isFlurries || isStorm ||isShower|| isSnow || isIce)
+            {
+                for (int k = 0; k < restoranlar.Length; k++)
+                {
+                    if(restoranlar[k]!=null)
+                    {
+                        if(String.Equals("Orta",restoranlar[k].duyarlilik,StringComparison.OrdinalIgnoreCase)
+                         || String.Equals("Çok",restoranlar[k].duyarlilik,StringComparison.OrdinalIgnoreCase)
+                         )
+                        {
+                            restoranlar[k] = null;
+                        }
+                    }
+                }
+            }
+            int choice=-1;
+            int maxPuan = 0;
+           for(int m=0;m<restoranlar.Length;m++)
+            {
+                if(restoranlar[m]!=null)
+                {
+                    if(restoranlar[m].tamPuan>maxPuan)
+                    {
+                        maxPuan = restoranlar[m].tamPuan;
+                        choice = m;
+                    }
+                }
+            }
+           Restoran secilmisRestoran = null;
+           if (choice == -1) // seçemedik
+           {
+               for (int n = 0; n < restoranYedek.Length; n++)
+               {
+                   if (restoranYedek[n] != null)
+                   {
+                       if (restoranYedek[n].tamPuan > maxPuan)
+                       {
+                           maxPuan = restoranYedek[n].tamPuan;
+                           choice = n;
+                       }
+                   }
+               }
+               secilmisRestoran = restoranYedek[choice];
+           }
+           else secilmisRestoran = restoranlar[choice];
+
+           string sixthCommand = "INSERT INTO TAKVIM (restoranid,cycleday) VALUES (" + secilmisRestoran.id.ToString() + ","
+               + (maxDay + 1).ToString() + ");";
+           cmd.CommandText = sixthCommand;
+           cmd.ExecuteNonQuery();
+
+           string seventhCommand = "UPDATE PUANLAR SET TAMPUAN=TAMPUAN -1 WHERE RESTORANID="
+               + secilmisRestoran.id.ToString() + ";";
+           cmd.CommandText = seventhCommand;
+           cmd.ExecuteNonQuery();
+           //task scheduler işi var bi de.
 
 
         }
