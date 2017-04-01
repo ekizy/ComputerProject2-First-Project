@@ -113,9 +113,6 @@ namespace nerdeyesek
                     }
                     Panel1.Controls.Add(new Literal() { ID = "row" + counter.ToString(), Text = "<br/>" });
                 }
-                string secondCommand = "UPDATE RESTORANLAR SET isVoted=1;";
-                cmd.CommandText = secondCommand;
-                cmd.ExecuteNonQuery();
                 if (isVoted != 0)
                 {
                     btnAddVotes.Visible = false;
@@ -137,6 +134,9 @@ namespace nerdeyesek
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             con.Open();
+            string deleteSchedule = "DELETE FROM TAKVIM;";
+            cmd.CommandText = deleteSchedule;
+            cmd.ExecuteNonQuery();
             int counter = 0;
             List<double> list = new List<double>();
             list = calculateAverage();
@@ -149,7 +149,6 @@ namespace nerdeyesek
                 double remain = list[i] - Math.Floor(list[i]);
                 float ondalik = Convert.ToSingle(remain);
                 string firstCommand = "UPDATE PUANLAR SET tampuan=" + tam.ToString() + ",ondalikpuan=" + ondalik.ToString() +" WHERE restoranid=" + id + ";";
-                firstCommand = 
                 cmd.CommandText = firstCommand;
                 cmd.ExecuteNonQuery();
                 counter++;

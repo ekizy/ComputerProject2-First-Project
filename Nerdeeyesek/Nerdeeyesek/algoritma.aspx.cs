@@ -74,13 +74,28 @@ namespace Nerdeeyesek
                     + maxDay.ToString() + ";";
                 cmd.CommandText = fourthCommand;
                 string ad = (string)cmd.ExecuteScalar();
+                string transportCommand= "SELECT ULASIMTIPI FROM TAKVIM JOIN RESTORANLAR ON TAKVIM.RESTORANID=RESTORANLAR.ID WHERE TAKVIM.CYCLEDAY="
+                    + maxDay.ToString()+";";
+                string ulasim = (string)cmd.ExecuteScalar();
+                bool araba = false;
+                if (String.Equals("Araba", ulasim, StringComparison.OrdinalIgnoreCase))
+                    araba = true;
+
+
                 for (int i = 0; i < restoranlar.Length; i++)
                 {
-                    if (String.Equals(ad, restoranlar[i].ad, StringComparison.OrdinalIgnoreCase))
+                    if(restoranlar[i] !=null)
                     {
-                        restoranlar[i] = null;
-                        break;
+                        if (String.Equals(ad, restoranlar[i].ad, StringComparison.OrdinalIgnoreCase))
+                        {
+                            restoranlar[i] = null;
+                        }
+                        else if (araba && String.Equals("Araba", restoranlar[i].ulasimTuru, StringComparison.OrdinalIgnoreCase))
+                        {
+                            restoranlar[i] = null;
+                        }
                     }
+
                 }
             }
             if(maxDay>=2)
@@ -189,7 +204,7 @@ namespace Nerdeeyesek
            client.Credentials = new System.Net.NetworkCredential("infoneredeyesek@gmail.com", "hilalserkanyusuf");
            MailMessage mesaj = new MailMessage("infoneredeyesek@gmail.com", "ekizy@itu.edu.tr");
            mesaj.Subject = "Restoran Bilgisi";
-           mesaj.Body = "Bugunku ("+(maxDay+1).ToString() + ". gun)gidilecek restoran " + secilmisRestoran.ad;
+           mesaj.Body = "Bugunku("+(maxDay+1).ToString() + ".gun) gidilecek restoran " + secilmisRestoran.ad;
            client.Send(mesaj);
 
 
