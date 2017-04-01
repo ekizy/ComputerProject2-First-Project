@@ -207,7 +207,7 @@ namespace Nerdeeyesek
            mesaj.Body = "Bugunku("+(maxDay+1).ToString() + ".gun) gidilecek restoran " + secilmisRestoran.ad;
            client.Send(mesaj);
 
-           Response.Redirect("~/");
+           //Response.Redirect("~/");
         }
     }
 }
