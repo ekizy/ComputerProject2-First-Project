@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Net;
+using System.Net.Mail;
+using System.Text;
 
 namespace Nerdeeyesek
 {
@@ -155,6 +157,13 @@ namespace Nerdeeyesek
                        }
                    }
                }
+               if (choice == -1)
+               {
+                   string eighthCommand = "UPDATE RESTORANLAR SET isVoted=0;";
+                   cmd.CommandText = eighthCommand;
+                   cmd.ExecuteNonQuery();
+                   return;
+               }
                secilmisRestoran = restoranYedek[choice];
            }
            else secilmisRestoran = restoranlar[choice];
@@ -169,6 +178,19 @@ namespace Nerdeeyesek
            cmd.CommandText = seventhCommand;
            cmd.ExecuteNonQuery();
            //task scheduler işi var bi de.
+
+           SmtpClient client = new SmtpClient();
+           client.Port = 587;
+           client.Host = "smtp.gmail.com";
+           client.EnableSsl = true;
+           client.Timeout = 10000;
+           client.DeliveryMethod = SmtpDeliveryMethod.Network;
+           client.UseDefaultCredentials = false;
+           client.Credentials = new System.Net.NetworkCredential("infoneredeyesek@gmail.com", "hilalserkanyusuf");
+           MailMessage mesaj = new MailMessage("infoneredeyesek@gmail.com", "ekizy@itu.edu.tr");
+           mesaj.Subject = "Restoran Bilgisi";
+           mesaj.Body = "Bugunku ("+(maxDay+1).ToString() + ". gun)gidilecek restoran " + secilmisRestoran.ad;
+           client.Send(mesaj);
 
 
         }

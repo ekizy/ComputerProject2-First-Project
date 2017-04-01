@@ -148,8 +148,8 @@ namespace nerdeyesek
                 int tam = (int)Math.Floor(list[i]);
                 double remain = list[i] - Math.Floor(list[i]);
                 float ondalik = Convert.ToSingle(remain);
-                string firstCommand = "UPDATE PUANLAR SET tampuan=" + tam + ",ondalikpuan=" + ondalik + " WHERE restoranid=" + id + ";";
-
+                string firstCommand = "UPDATE PUANLAR SET tampuan=" + tam.ToString() + ",ondalikpuan=" + ondalik.ToString() +" WHERE restoranid=" + id + ";";
+                firstCommand = 
                 cmd.CommandText = firstCommand;
                 cmd.ExecuteNonQuery();
                 counter++;
