@@ -13,7 +13,7 @@ namespace nerdeyesek
     {
         protected string[] restoranlar()
         {
-            string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            string conString = String.Format(@"Server=tcp:neredenyesek.database.windows.net,1433;Initial Catalog=Computerproject;Persist Security Info=False;User ID=serkanbekir;Password=serkan-94;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             SqlConnection con = new SqlConnection(conString);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
@@ -36,7 +36,7 @@ namespace nerdeyesek
         }
         protected string[] uyeler()
         {
-            string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            string conString = String.Format(@"Server=tcp:neredenyesek.database.windows.net,1433;Initial Catalog=Computerproject;Persist Security Info=False;User ID=serkanbekir;Password=serkan-94;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             SqlConnection con = new SqlConnection(conString);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
@@ -66,7 +66,7 @@ namespace nerdeyesek
         protected void initPage()
         {
             int counter = 0;
-            string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            string conString = String.Format(@"Server=tcp:neredenyesek.database.windows.net,1433;Initial Catalog=Computerproject;Persist Security Info=False;User ID=serkanbekir;Password=serkan-94;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             SqlConnection con = new SqlConnection(conString);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
@@ -129,7 +129,7 @@ namespace nerdeyesek
 
         protected void btnAddVotes_Click(object sender, EventArgs e)
         {
-            string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            string conString = String.Format(@"Server=tcp:neredenyesek.database.windows.net,1433;Initial Catalog=Computerproject;Persist Security Info=False;User ID=serkanbekir;Password=serkan-94;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             SqlConnection con = new SqlConnection(conString);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
@@ -165,7 +165,7 @@ namespace nerdeyesek
 
         protected List<double> calculateAverage()
         {
-            string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            string conString = String.Format(@"Server=tcp:neredenyesek.database.windows.net,1433;Initial Catalog=Computerproject;Persist Security Info=False;User ID=serkanbekir;Password=serkan-94;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             SqlConnection con = new SqlConnection(conString);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
@@ -195,7 +195,7 @@ namespace nerdeyesek
         }
         protected List<int> getIds()
         {
-            string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            string conString = String.Format(@"Server=tcp:neredenyesek.database.windows.net,1433;Initial Catalog=Computerproject;Persist Security Info=False;User ID=serkanbekir;Password=serkan-94;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             List<int> ids = new List<int>();
             using (var con = new SqlConnection(conString))
             {

@@ -31,7 +31,7 @@ namespace nerdeyesek
             string havayaduyarlilik = TextBox3.Text.ToString();
             int id = 0;
 
-            string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;Integrated Security=False;User ID=ekizy;Password=yusufekiz-10;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            string conString = String.Format(@"Server=tcp:neredenyesek.database.windows.net,1433;Initial Catalog=Computerproject;Persist Security Info=False;User ID=serkanbekir;Password=serkan-94;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             SqlConnection con = new SqlConnection(conString);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;

@@ -16,8 +16,7 @@ namespace Nerdeeyesek
         protected void Page_Load(object sender, EventArgs e)
         {
             string gun = DateTime.Now.ToString();
-
-            string conString = String.Format(@"Data Source=nerdeyesek.database.windows.net;Initial Catalog=Project1Database;User ID=ekizy;Password=yusufekiz-10");
+            string conString = String.Format(@"Server=tcp:neredenyesek.database.windows.net,1433;Initial Catalog=Computerproject;Persist Security Info=False;User ID=serkanbekir;Password=serkan-94;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             SqlConnection con = new SqlConnection(conString);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
