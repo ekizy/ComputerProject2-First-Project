@@ -204,7 +204,7 @@ namespace Nerdeeyesek
            client.DeliveryMethod = SmtpDeliveryMethod.Network;
            client.UseDefaultCredentials = false;
            client.Credentials = new System.Net.NetworkCredential("infoneredeyesek@gmail.com", "hilalserkanyusuf");
-           MailMessage mesaj = new MailMessage("infoneredeyesek@gmail.com", "ekizy@itu.edu.tr");
+           MailMessage mesaj = new MailMessage("infoneredeyesek@gmail.com", "ekizy@itu.edu.tr, bekir@itu.edu.tr");
            mesaj.Subject = "Restoran Bilgisi";
            mesaj.Body = "Bugunku("+(maxDay+1).ToString() + ".gun) gidilecek restoran " + secilmisRestoran.ad;
            client.Send(mesaj);

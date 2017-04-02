@@ -7,7 +7,7 @@
       <div style="height: 286px;margin-top: 100px;margin-left:300px;">
   
     
-        <table>
+        <table class="tablestyle1">
             <tr >
                 <td>
                  <asp:GridView CssClass="Restoran" ID="GridView1" runat="server" Height="267px"  Width="628px" AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
