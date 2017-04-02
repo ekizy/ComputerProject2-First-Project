@@ -22,12 +22,12 @@
                 </td>
             </tr>
         </table>
-    <style>
+    <!--<style>
         body{
             background-image:url(https://static.pexels.com/photos/306059/pexels-photo-306059.jpeg);
             background-size:cover;
         }
-    </style>
+    </style>-->
   
         
  </div>  

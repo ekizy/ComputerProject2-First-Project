@@ -28,11 +28,11 @@
     <div>
         <asp:Button CssClass="buttons1" ID="useraddbttn" runat="server" onClick="useraddbttn_Click" Text="Üye Ekle" />
     </div>
-    <style>
+    <!--<style>
         body{
             background-image:url(https://static.pexels.com/photos/6372/coffee-smartphone-desk-pen.jpg);
             background-size:cover;
         }
-    </style>
+    </style>-->
     
  </asp:Content>
