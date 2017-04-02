@@ -30,6 +30,7 @@ namespace Nerdeeyesek
             cmd.CommandText = secondCommand;
             SqlDataReader reader = cmd.ExecuteReader();
             int counter = 0;
+            string havadurumu = "";
             while (reader.Read())
             {
                 restoranlar[counter] = new Restoran(reader.GetInt32(0), reader.GetString(1),
@@ -129,14 +130,15 @@ namespace Nerdeeyesek
             }
               //2 önceki güne bak arabalıysa. Arabalı olasılıkları sil.
             }
-            if(isRain || isFlurries || isStorm ||isShower|| isSnow || isIce)
+            if (isRain || isFlurries || isStorm || isShower || isSnow || isIce)
             {
+                havadurumu = "Kotu";
                 for (int k = 0; k < restoranlar.Length; k++)
                 {
-                    if(restoranlar[k]!=null)
+                    if (restoranlar[k] != null)
                     {
-                        if(String.Equals("Orta",restoranlar[k].duyarlilik,StringComparison.OrdinalIgnoreCase)
-                         || String.Equals("Çok",restoranlar[k].duyarlilik,StringComparison.OrdinalIgnoreCase)
+                        if (String.Equals("Orta", restoranlar[k].duyarlilik, StringComparison.OrdinalIgnoreCase)
+                         || String.Equals("Çok", restoranlar[k].duyarlilik, StringComparison.OrdinalIgnoreCase)
                          )
                         {
                             restoranlar[k] = null;
@@ -144,6 +146,7 @@ namespace Nerdeeyesek
                     }
                 }
             }
+            else havadurumu = "Iyi";
             int choice=-1;
             int maxPuan = 0;
            for(int m=0;m<restoranlar.Length;m++)
@@ -182,8 +185,8 @@ namespace Nerdeeyesek
            }
            else secilmisRestoran = restoranlar[choice];
 
-           string sixthCommand = "INSERT INTO TAKVIM (restoranid,cycleday) VALUES (" + secilmisRestoran.id.ToString() + ","
-               + (maxDay + 1).ToString() + ");";
+           string sixthCommand = "INSERT INTO TAKVIM (restoranid,cycleday,hava) VALUES (" + secilmisRestoran.id.ToString() + ","
+               + (maxDay + 1).ToString() + ","+havadurumu.ToString()+");";
            cmd.CommandText = sixthCommand;
            cmd.ExecuteNonQuery();
 

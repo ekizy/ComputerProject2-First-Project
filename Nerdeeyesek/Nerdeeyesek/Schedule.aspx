@@ -4,53 +4,33 @@
 
     <h2>Gidilecek restoranlar</h2>
 
-    <div class="s5">
-        <table  class="tablestyle1" style="background-color:papayawhip">
-            <tr class="s6">
-                <th class="s5">Gün</th>
-                <th class="s5">Restoran adı</th>
-                <th class="s5">Ulaşım tipi</th>
-                <th class="s5">Hava Duyarlılığı</th>
+      <div style="height: 286px;margin-top: 100px;margin-left:300px;">
+  
+    
+        <table>
+            <tr >
+                <td>
+                 <asp:GridView CssClass="Restoran" ID="GridView1" runat="server" Height="267px"  Width="628px" AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
+                     <Columns>
+                         <asp:BoundField DataField="REALDATE" HeaderText="REALDATE" SortExpression="REALDATE" />
+                         <asp:BoundField DataField="CYCLEDAY" HeaderText="CYCLEDAY" SortExpression="CYCLEDAY" />
+                         <asp:BoundField DataField="AD" HeaderText="AD" SortExpression="AD" />
+                         <asp:BoundField DataField="HAVAYADUYARLILIK" HeaderText="HAVAYADUYARLILIK" SortExpression="HAVAYADUYARLILIK" />
+                         <asp:BoundField DataField="ULASIMTIPI" HeaderText="ULASIMTIPI" SortExpression="ULASIMTIPI" />
+                         <asp:BoundField DataField="HAVA" HeaderText="HAVA" SortExpression="HAVA" />
+                     </Columns>
+                 </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Project1DatabaseConnectionString %>" SelectCommand="SELECT REALDATE,CYCLEDAY,RESTORANLAR.AD,HAVAYADUYARLILIK,RESTORANLAR.ULASIMTIPI,TAKVIM.HAVA FROM TAKVIM JOIN RESTORANLAR ON RESTORANLAR.ID=TAKVIM.RESTORANID ORDER BY TAKVIM.CYCLEDAY"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+                    <asp:Repeater  ID="Repeater1" runat="server"  ></asp:Repeater>
+                </td>
             </tr>
-            <tr class="s6">
-                <td class="s5">1</td>
-                <td class="s5">Nusret</td>
-                <td class="s5">Araba</td>
-                <td class="s5">Var</td>
-            </tr>
-            <tr class="s6">
-                <td class="s5">2</td>
-                <td class="s5">Varuna Gezgin</td>
-                <td class="s5">Yaya</td>
-                <td class="s5">Var</td>
-            </tr>
-            <tr class="s6">
-                <td class="s5">3</td>
-                <td class="s5">Kumbara</td>
-                <td class="s5">Araba</td>
-                <td class="s5">Yok</td>
-            </tr>
-            <tr class="s6">
-                <td class="s5">4</td>
-                <td class="s5">Baltazar</td>
-                <td class="s5">Yaya</td>
-                <td class="s5">Var</td>
-            </tr>
-            <tr class="s6">
-                <td class="s5">5</td>
-                <td class="s5">Heisenberg</td>
-                <td class="s5">Yaya</td>
-                <td class="s5">Var</td>
-            </tr>
-            <tr>
-                <td class="s5">6</td>
-                <td class="s5">Midpoint</td>
-                <td class="s5">Araba</td>
-                <td class="s5">Yok</td>
-            </tr>
-
         </table>
-    </div>
+
+  
+        
+ </div>  
+
     <style>
         body{
             background-image:url(https://static.pexels.com/photos/67468/pexels-photo-67468.jpeg);
