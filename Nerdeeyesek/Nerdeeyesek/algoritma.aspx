@@ -2,6 +2,4 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server" >
 
-
-   <asp:Label Id="labeldeneme" runat="server" Text="Deneme"></asp:Label>
  </asp:Content>
