@@ -196,6 +196,30 @@ namespace Nerdeeyesek
            cmd.ExecuteNonQuery();
            //task scheduler işi var bi de.
 
+           string ninethCommand = "SELECT COUNT(DISTINCT AD) FROM UYELER;";
+           cmd.CommandText = ninethCommand;
+           int uyeSayisi = (int)cmd.ExecuteScalar();
+           string[] mails = new string[uyeSayisi];
+
+           string mailCommand = "SELECT MAIL FROM UYELER";
+           cmd.CommandText = mailCommand;
+
+           SqlDataReader readerMail = cmd.ExecuteReader();
+           int counter2 = 0;
+           while (readerMail.Read())
+           {
+               mails[counter2] = readerMail.GetString(0);
+               counter2++;
+           }
+           readerMail.Close();
+
+           string mailstring = "";
+
+           for (int a = 0; a < uyeSayisi; a++)
+           {
+               mailstring = mailstring+"," + mails[a];
+           }
+
            SmtpClient client = new SmtpClient();
            client.Port = 587;
            client.Host = "smtp.gmail.com";
@@ -204,7 +228,7 @@ namespace Nerdeeyesek
            client.DeliveryMethod = SmtpDeliveryMethod.Network;
            client.UseDefaultCredentials = false;
            client.Credentials = new System.Net.NetworkCredential("infoneredeyesek@gmail.com", "hilalserkanyusuf");
-           MailMessage mesaj = new MailMessage("infoneredeyesek@gmail.com", "ekizy@itu.edu.tr, bekir@itu.edu.tr");
+           MailMessage mesaj = new MailMessage("infoneredeyesek@gmail.com", mailstring);
            mesaj.Subject = "Restoran Bilgisi";
            mesaj.Body = "Bugunku("+(maxDay+1).ToString() + ".gun) gidilecek restoran " + secilmisRestoran.ad;
            client.Send(mesaj);
