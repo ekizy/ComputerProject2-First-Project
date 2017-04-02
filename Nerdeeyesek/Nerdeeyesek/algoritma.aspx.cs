@@ -186,7 +186,7 @@ namespace Nerdeeyesek
            else secilmisRestoran = restoranlar[choice];
 
            string sixthCommand = "INSERT INTO TAKVIM (restoranid,cycleday,hava) VALUES (" + secilmisRestoran.id.ToString() + ","
-               + (maxDay + 1).ToString() + ","+havadurumu.ToString()+");";
+               + (maxDay + 1).ToString() + ",'"+havadurumu.ToString()+"');";
            cmd.CommandText = sixthCommand;
            cmd.ExecuteNonQuery();
 
