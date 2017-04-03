@@ -8,9 +8,9 @@
                 <td>
     <asp:GridView ID="GridView1"  CssClass="Restoran" runat="server" Height="267px"  Width="600px" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
         <Columns>
-            <asp:BoundField DataField="ad" HeaderText="ad" SortExpression="ad" />
-            <asp:BoundField  DataField="soyad" HeaderText="soyad" SortExpression="soyad" />
-            <asp:BoundField DataField="mail" HeaderText="mail" SortExpression="mail" />
+            <asp:BoundField DataField="ad" HeaderText="NAME" SortExpression="ad" />
+            <asp:BoundField  DataField="soyad" HeaderText="SURNAME" SortExpression="soyad" />
+            <asp:BoundField DataField="mail" HeaderText="MAIL" SortExpression="mail" />
         </Columns>
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project1DatabaseConnectionString %>" SelectCommand="SELECT [ad], [soyad], [mail] FROM [UYELER]"></asp:SqlDataSource>

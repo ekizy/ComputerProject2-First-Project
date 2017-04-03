@@ -12,12 +12,12 @@
                 <td>
                  <asp:GridView CssClass="Restoran" ID="GridView1" runat="server" Height="267px"  Width="628px" AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
                      <Columns>
-                         <asp:BoundField DataField="REALDATE" HeaderText="REALDATE" SortExpression="REALDATE" />
+                         <asp:BoundField DataField="REALDATE" HeaderText="DATE" SortExpression="REALDATE" />
                          <asp:BoundField DataField="CYCLEDAY" HeaderText="CYCLEDAY" SortExpression="CYCLEDAY" />
-                         <asp:BoundField DataField="AD" HeaderText="AD" SortExpression="AD" />
-                         <asp:BoundField DataField="HAVAYADUYARLILIK" HeaderText="HAVAYADUYARLILIK" SortExpression="HAVAYADUYARLILIK" />
-                         <asp:BoundField DataField="ULASIMTIPI" HeaderText="ULASIMTIPI" SortExpression="ULASIMTIPI" />
-                         <asp:BoundField DataField="HAVA" HeaderText="HAVA" SortExpression="HAVA" />
+                         <asp:BoundField DataField="AD" HeaderText="NAME" SortExpression="AD" />
+                         <asp:BoundField DataField="HAVAYADUYARLILIK" HeaderText="WEATHERSENSITIVITY" SortExpression="HAVAYADUYARLILIK" />
+                         <asp:BoundField DataField="ULASIMTIPI" HeaderText="TRANSPORTATION" SortExpression="ULASIMTIPI" />
+                         <asp:BoundField DataField="HAVA" HeaderText="WEATHER" SortExpression="HAVA" />
                      </Columns>
                  </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Project1DatabaseConnectionString %>" SelectCommand="SELECT REALDATE,CYCLEDAY,RESTORANLAR.AD,HAVAYADUYARLILIK,RESTORANLAR.ULASIMTIPI,TAKVIM.HAVA FROM TAKVIM JOIN RESTORANLAR ON RESTORANLAR.ID=TAKVIM.RESTORANID ORDER BY TAKVIM.CYCLEDAY"></asp:SqlDataSource>

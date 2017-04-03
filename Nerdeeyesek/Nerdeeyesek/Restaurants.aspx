@@ -12,9 +12,9 @@
                 <td>
                  <asp:GridView CssClass="Restoran" ID="GridView1" runat="server" Height="267px"  Width="628px" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                      <Columns>
-                         <asp:BoundField DataField="ad" HeaderText="ad" SortExpression="ad" />
-                         <asp:BoundField DataField="ulasimtipi" HeaderText="ulasimtipi" SortExpression="ulasimtipi" />
-                         <asp:BoundField DataField="havayaduyarlilik" HeaderText="havayaduyarlilik" SortExpression="havayaduyarlilik" />
+                         <asp:BoundField DataField="ad" HeaderText="NAME" SortExpression="ad" />
+                         <asp:BoundField DataField="ulasimtipi" HeaderText="TRANSPORTATION" SortExpression="ulasimtipi" />
+                         <asp:BoundField DataField="havayaduyarlilik" HeaderText="WEATHER SENSITIVITY" SortExpression="havayaduyarlilik" />
                      </Columns>
                  </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project1DatabaseConnectionString %>" SelectCommand="SELECT * FROM [RESTORANLAR]"></asp:SqlDataSource>

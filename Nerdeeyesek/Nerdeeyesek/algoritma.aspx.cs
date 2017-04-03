@@ -68,6 +68,7 @@ namespace Nerdeeyesek
             int cycleLength = (int)cmd.ExecuteScalar();
             if (maxDay < cycleLength)
             {
+                
                 if (maxDay >= 1)
                 { /*önceki güne bak
               maxDay'in dbden çek restoran bilgilerini kaydet ve olasılıklardan sil. Arabalıysa 
@@ -78,9 +79,10 @@ namespace Nerdeeyesek
                     string ad = (string)cmd.ExecuteScalar();
                     string transportCommand = "SELECT ULASIMTIPI FROM TAKVIM JOIN RESTORANLAR ON TAKVIM.RESTORANID=RESTORANLAR.ID WHERE TAKVIM.CYCLEDAY="
                         + maxDay.ToString() + ";";
+                    cmd.CommandText = transportCommand;
                     string ulasim = (string)cmd.ExecuteScalar();
                     bool araba = false;
-                    if (String.Equals("Araba", ulasim, StringComparison.OrdinalIgnoreCase))
+                    if (String.Equals("Car", ulasim, StringComparison.OrdinalIgnoreCase))
                         araba = true;
                     for (int i = 0; i < restoranlar.Length; i++)
                     {
@@ -90,7 +92,7 @@ namespace Nerdeeyesek
                             {
                                 restoranlar[i] = null;
                             }
-                            else if (araba && String.Equals("Araba", restoranlar[i].ulasimTuru, StringComparison.OrdinalIgnoreCase))
+                            else if (araba && String.Equals("Car", restoranlar[i].ulasimTuru, StringComparison.OrdinalIgnoreCase))
                             {
                                 restoranlar[i] = null;
                             }
@@ -112,14 +114,14 @@ namespace Nerdeeyesek
                         counter1++;
                     }
                     reader1.Close();
-                    if (String.Equals("Araba", ulasimtipleri[0], StringComparison.OrdinalIgnoreCase)
-                        || String.Equals("Araba", ulasimtipleri[1], StringComparison.OrdinalIgnoreCase))
+                    if (String.Equals("Car", ulasimtipleri[0], StringComparison.OrdinalIgnoreCase)
+                        || String.Equals("Car", ulasimtipleri[1], StringComparison.OrdinalIgnoreCase))
                     {
                         for (int j = 0; j < restoranlar.Length; j++)
                         {
                             if (restoranlar[j] != null)
                             {
-                                if (String.Equals("Araba", restoranlar[j].ulasimTuru,
+                                if (String.Equals("Car", restoranlar[j].ulasimTuru,
                                     StringComparison.OrdinalIgnoreCase)
                                  )
                                 {
@@ -132,21 +134,23 @@ namespace Nerdeeyesek
                 }
                 if (isRain || isFlurries || isStorm || isShower || isSnow || isIce)
                 {
-                    havadurumu = "Kotu";
+                    if (isRain) havadurumu = "Raining";
+                    else if (isFlurries) havadurumu = "Flurries";
+                    else if (isStorm) havadurumu = "Storm";
+                    else if (isShower) havadurumu = "Raining";
+                    else if (isSnow || isIce) havadurumu = "Snowing";
                     for (int k = 0; k < restoranlar.Length; k++)
                     {
                         if (restoranlar[k] != null)
                         {
-                            if (String.Equals("Orta", restoranlar[k].duyarlilik, StringComparison.OrdinalIgnoreCase)
-                             || String.Equals("Çok", restoranlar[k].duyarlilik, StringComparison.OrdinalIgnoreCase)
-                             )
+                            if (String.Equals("Sensitive", restoranlar[k].duyarlilik, StringComparison.OrdinalIgnoreCase)                             )
                             {
                                 restoranlar[k] = null;
                             }
                         }
                     }
                 }
-                else havadurumu = "Iyi";
+                else havadurumu = "Clear";
                 int choice = -1;
                 double maxPuan = 0;
                 for (int m = 0; m < restoranlar.Length; m++)
@@ -191,6 +195,7 @@ namespace Nerdeeyesek
                 }
                 else secilmisRestoran = restoranlar[choice];
 
+                
                 string sixthCommand = "INSERT INTO TAKVIM (restoranid,cycleday,hava) VALUES (" + secilmisRestoran.id.ToString() + ","
                     + (maxDay + 1).ToString() + ",'" + havadurumu.ToString() + "');";
                 cmd.CommandText = sixthCommand;
@@ -234,11 +239,11 @@ namespace Nerdeeyesek
                 client.UseDefaultCredentials = false;
                 client.Credentials = new System.Net.NetworkCredential("infoneredeyesek@gmail.com", "hilalserkanyusuf");
                 MailMessage mesaj = new MailMessage("infoneredeyesek@gmail.com", mailstring);
-                mesaj.Subject = "Restoran Bilgisi";
-                mesaj.Body = "Bugunku(" + (maxDay + 1).ToString() + ".gun) gidilecek restoran " + secilmisRestoran.ad;
+                mesaj.Subject = "Restaurant Information";
+                mesaj.Body = "Today's(" + (maxDay + 1).ToString() + ".day) restaurant is " + secilmisRestoran.ad;
                 client.Send(mesaj);
-
                 con.Close();
+                Response.Redirect("~/");
 
             }
             else

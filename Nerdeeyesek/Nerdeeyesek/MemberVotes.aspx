@@ -15,8 +15,8 @@
                 <td>
                  <asp:GridView CssClass="Restoran" ID="GridView1" runat="server" Height="267px"  Width="400px" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                      <Columns>
-                         <asp:BoundField DataField="AD" HeaderText="AD" SortExpression="AD" />
-                         <asp:BoundField DataField="PUAN" HeaderText="PUAN" SortExpression="PUAN" />
+                         <asp:BoundField DataField="AD" HeaderText="NAME" SortExpression="AD" />
+                         <asp:BoundField DataField="PUAN" HeaderText="RATING" SortExpression="PUAN" />
                      </Columns>
   
                  </asp:GridView>
