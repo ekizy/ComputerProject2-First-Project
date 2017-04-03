@@ -43,7 +43,7 @@ namespace nerdeyesek
             cmd.CommandText = secondCommand;
             id= (int) cmd.ExecuteScalar();
 
-            string thirdCommand = "INSERT INTO PUANLAR VALUES("+id.ToString()+",0.0);";
+            string thirdCommand = "INSERT INTO PUANLAR  VALUES("+id.ToString()+",0.0,0);";
             cmd.CommandText = thirdCommand;
             cmd.ExecuteNonQuery();
             con.Close();

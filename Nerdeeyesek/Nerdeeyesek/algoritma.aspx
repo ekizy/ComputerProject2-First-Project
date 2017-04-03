@@ -2,4 +2,6 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server" >
 
+    <asp:Label Visible="false" Text="Döngü bitti" ID="lbldongu" runat="server">
+    </asp:Label>
  </asp:Content>

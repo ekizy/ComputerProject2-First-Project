@@ -159,6 +159,8 @@ namespace nerdeyesek
             list = calculateAverage();
             List<int> idlist = new List<int>();
             idlist = getIds();
+
+
             for (int i = 0; i < list.Count; i++)
             {
                 int id = idlist[counter];
@@ -170,6 +172,12 @@ namespace nerdeyesek
 
             string secondCommand = "UPDATE RESTORANLAR SET isVoted=1;";
             cmd.CommandText = secondCommand;
+            cmd.ExecuteNonQuery();
+
+            TextBox tbox =(TextBox) Panel1.FindControl("Textboxcycle");
+            string cyclelength = tbox.Text.ToString();
+            string thirdCommand = "UPDATE PUANLAR SET cyclelength=" + cyclelength + ";";
+            cmd.CommandText = thirdCommand;
             cmd.ExecuteNonQuery();
             con.Close();
             
