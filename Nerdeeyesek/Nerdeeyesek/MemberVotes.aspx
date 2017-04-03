@@ -22,10 +22,10 @@
   
                  </asp:GridView>
                     <asp:Repeater  ID="Repeater1" runat="server" DataSourceID="SqlDataSource1"  ></asp:Repeater>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project1DatabaseConnectionString %>" SelectCommand="SELECT  AD,TAMPUAN,ONDALIKPUAN FROM PUANLAR JOIN RESTORANLAR ON RESTORANLAR.ID=PUANLAR.RESTORANID"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Project1DatabaseConnectionString %>" SelectCommand="SELECT  AD,PUAN FROM PUANLAR JOIN RESTORANLAR ON RESTORANLAR.ID=PUANLAR.RESTORANID"></asp:SqlDataSource>
                 </td>
             </tr>
-        </table
+        </table>
             </div>
     </div>
         <!--<style>

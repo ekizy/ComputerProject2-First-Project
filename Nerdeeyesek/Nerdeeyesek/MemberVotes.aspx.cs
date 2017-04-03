@@ -113,6 +113,23 @@ namespace nerdeyesek
                     }
                     Panel1.Controls.Add(new Literal() { ID = "row" + counter.ToString(), Text = "<br/>" });
                 }
+                Panel1.Controls.Add(new Literal() { ID = "row3" + counter.ToString(), Text = "<br/>" });
+                Label cycleLabel = new Label();
+                cycleLabel.Width = 100;
+                cycleLabel.Text = "Gun sayısı";
+                cycleLabel.Font.Bold = true;
+                cycleLabel.Visible = true;
+                if (isVoted != 0) cycleLabel.Visible = false;
+                Panel1.Controls.Add(cycleLabel);
+
+                TextBox cycleTextBox = new TextBox();
+                cycleTextBox.Width = 100;
+                cycleTextBox.ID = "Textboxcycle";
+                if (isVoted != 0) cycleTextBox.Visible = false;
+                Panel1.Controls.Add(cycleTextBox);
+                
+                
+
                 if (isVoted != 0)
                 {
                     btnAddVotes.Visible = false;
@@ -145,10 +162,7 @@ namespace nerdeyesek
             for (int i = 0; i < list.Count; i++)
             {
                 int id = idlist[counter];
-                int tam = (int)Math.Floor(list[i]);
-                double remain = list[i] - Math.Floor(list[i]);
-                float ondalik = Convert.ToSingle(remain);
-                string firstCommand = "UPDATE PUANLAR SET tampuan=" + tam.ToString() + ",ondalikpuan=" + ondalik.ToString() +" WHERE restoranid=" + id + ";";
+                string firstCommand = "UPDATE PUANLAR SET puan=puan+" + list[i].ToString()+ " WHERE restoranid=" + id + ";";
                 cmd.CommandText = firstCommand;
                 cmd.ExecuteNonQuery();
                 counter++;

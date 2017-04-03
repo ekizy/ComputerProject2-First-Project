@@ -34,11 +34,9 @@ namespace Nerdeeyesek
             while (reader.Read())
             {
                 restoranlar[counter] = new Restoran(reader.GetInt32(0), reader.GetString(1),
-                    reader.GetString(2),reader.GetInt32(3), 
-                    reader.GetDouble(4), reader.GetString(5));
+                    reader.GetString(2),reader.GetDouble(3),  reader.GetString(4));
                 restoranYedek[counter] = new Restoran(reader.GetInt32(0), reader.GetString(1),
-                    reader.GetString(2), reader.GetInt32(3),
-                    reader.GetDouble(4), reader.GetString(5));
+                    reader.GetString(2), reader.GetDouble(3), reader.GetString(4));
                 counter++;
             }
             reader.Close();
@@ -65,6 +63,7 @@ namespace Nerdeeyesek
                 {
                     maxDay = 0;
                 }
+            
 
             if(maxDay >=1)
             { /*önceki güne bak
@@ -148,14 +147,14 @@ namespace Nerdeeyesek
             }
             else havadurumu = "Iyi";
             int choice=-1;
-            int maxPuan = 0;
+            double maxPuan = 0;
            for(int m=0;m<restoranlar.Length;m++)
             {
                 if(restoranlar[m]!=null)
                 {
-                    if(restoranlar[m].tamPuan>maxPuan)
+                    if(restoranlar[m].puan>maxPuan)
                     {
-                        maxPuan = restoranlar[m].tamPuan;
+                        maxPuan = restoranlar[m].puan;
                         choice = m;
                     }
                 }
@@ -167,9 +166,9 @@ namespace Nerdeeyesek
                {
                    if (restoranYedek[n] != null)
                    {
-                       if (restoranYedek[n].tamPuan > maxPuan)
+                       if (restoranYedek[n].puan > maxPuan)
                        {
-                           maxPuan = restoranYedek[n].tamPuan;
+                           maxPuan = restoranYedek[n].puan;
                            choice = n;
                        }
                    }
