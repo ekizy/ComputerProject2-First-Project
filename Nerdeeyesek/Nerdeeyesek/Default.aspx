@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
   <div class="background">
   </div>
-  <h1 class="text"> Enjoy the best possible meal everyday with NeredeYesek</h1>
+  <h1 class="text"> Enjoy the best possible meal everyday with NeredeYesek...</h1>
   <style>
     .background { 
         position: absolute;
