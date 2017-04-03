@@ -157,6 +157,13 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Images\about.png" />
+    <Content Include="Images\background.jpeg" />
+    <Content Include="Images\logo.jpg" />
+    <Content Include="Images\membervotes.jpeg" />
+    <Content Include="Images\restaurants.jpeg" />
+    <Content Include="Images\schedule.jpeg" />
+    <Content Include="Images\users.jpg" />
     <Content Include="MemberVotes.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

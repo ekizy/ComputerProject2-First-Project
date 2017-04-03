@@ -27,11 +27,11 @@
         </table>
             </div>
     </div>
-        <!--<style>
+    <style>
         body{
-            background-image:url(https://static.pexels.com/photos/121627/pexels-photo-121627.jpeg);
+            background-image:url(Images/membervotes.jpeg);
             background-size:cover;
         }
-    </style>-->
+    </style>
 </asp:Content>
 

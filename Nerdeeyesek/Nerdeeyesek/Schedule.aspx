@@ -31,10 +31,10 @@
         
  </div>  
 
-    <!--<style>
+    <style>
         body{
-            background-image:url(https://static.pexels.com/photos/67468/pexels-photo-67468.jpeg);
+            background-image:url(Images/schedule.jpeg);
             background-size:cover;
         }
-    </style>-->
+    </style>
  </asp:Content>

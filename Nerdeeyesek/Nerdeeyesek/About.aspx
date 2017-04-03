@@ -7,7 +7,7 @@
     <p> Belirli bir gruptaki kişilerin restoran seçimini demokratikleştirmek ve optimize etmek için tasarlanmıştır. Bu uygulama, belirli bir zaman periyodu içinde kişilerin gitmek istedikleri restoranları oylayıp, gerekli kıstaslar göz önünde bulundurularak bir seçim algoritması oluşturmaktadır.</p>
     <style>
         body{
-            background-image:url(https://static.pexels.com/photos/39393/hand-the-hand-gesture-stick-39393.png);
+            background-image:url(Images/about.png);
             background-size:cover;
         }
     </style>

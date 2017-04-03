@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server" >
 <%--  --%>
-    <div style="height: 286px;margin-top: 100px;margin-left:300px;">
+    <div style="height: 286px;margin-top: 70px;margin-left:507px;">
         <table class="tablestyle1">
             <tr>
                 <td>
@@ -19,18 +19,18 @@
             </tr>
         </table>
     </div>
-    <div  style="height: 100px;margin-left:320px;">
+    <div  style="height: 100px;margin-left:550px;">
         <asp:TextBox ID="textname" placeholder="Name" Visible="false" runat="server"></asp:TextBox>
         <asp:TextBox ID="textsurname" placeholder="Surname" Visible="false" runat="server"></asp:TextBox>
         <asp:TextBox ID="textmail" placeholder="E-mail" Visible="false" runat="server"></asp:TextBox>
         <asp:Button ID="adduser" CssClass="btn btn-success" runat="server" Visible="false" OnClick="adduser_Click" Text="+" />
         <asp:Button CssClass="btn btn-primary" style="margin-left:210px; margin-top:10px" ID="useraddbttn" runat="server" onClick="useraddbttn_Click" Text="Üye Ekle" />
     </div>
-    <!--<style>
+    <style>
         body{
-            background-image:url(https://static.pexels.com/photos/6372/coffee-smartphone-desk-pen.jpg);
+            background-image:url(Images/users.jpg);
             background-size:cover;
         }
-    </style>-->
+    </style>
     
  </asp:Content>
