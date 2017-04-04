@@ -243,7 +243,7 @@ namespace Nerdeeyesek
                 mesaj.Body = "Today's(" + (maxDay + 1).ToString() + ".day) restaurant is " + secilmisRestoran.ad;
                 client.Send(mesaj);
                 con.Close();
-                Response.Redirect("~/");
+               // Response.Redirect("~/");
 
             }
             else
