@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server" >
 
-    <h2>Gidilecek restoranlar</h2>
+    <h2>Destination Restaurants</h2>
 
       <div style="height: 286px;margin-top: 100px;margin-left:300px;">
   

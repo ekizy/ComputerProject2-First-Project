@@ -98,7 +98,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" runat="server" href="~/">
-                        <asp:Image runat="server" ImageUrl="~/Images/logo.jpg" style="height:30px"/>
+                        <asp:Image runat="server" ImageUrl="~/Images/logo.jpg" style="height:40px"/>
                     </a>
                 </div>
                 <div class="navbar-collapse collapse">
