@@ -6,7 +6,7 @@
         <br />
         <asp:Panel ID="Panel1" runat="server" ></asp:Panel>
         <div style="height:10px;"></div>
-        <asp:button id="btnAddVotes" CssClass="btn btn-success" runat="server" text="Kaydet" OnClick="btnAddVotes_Click"></asp:button>
+        <asp:button id="btnAddVotes" CssClass="btn btn-success" runat="server" text="Vote" OnClick="btnAddVotes_Click"></asp:button>
         <asp:label id="lblHata" runat="server" forecolor="Red"></asp:label>
 
         <div style="height: 286px;margin-left:400px;">

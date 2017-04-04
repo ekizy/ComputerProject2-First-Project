@@ -117,7 +117,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p style="text-align:center;">&copy; <%: DateTime.Now.Year %> - NerdeYesek Application</p>
+                <p style="clear:both; position:fixed; width:100%; padding:5px; bottom:0; text-align:center;">&copy; <%: DateTime.Now.Year %> - NerdenYesek Application</p>
             </footer>
         </div>
     </form>

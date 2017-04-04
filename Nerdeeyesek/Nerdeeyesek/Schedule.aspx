@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server" >
 
-    <h2>Destination Restaurants</h2>
+    <h2 style="margin-left:450px; margin-top:50px">Destination Restaurants</h2>
 
       <div style="height: 286px;margin-top: 100px;margin-left:300px;">
   
