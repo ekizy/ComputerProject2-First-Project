@@ -24,7 +24,7 @@
         <asp:TextBox ID="textsurname" placeholder="Surname" Visible="false" runat="server"></asp:TextBox>
         <asp:TextBox ID="textmail" placeholder="E-mail" Visible="false" runat="server"></asp:TextBox>
         <asp:Button ID="adduser" CssClass="btn btn-success" runat="server" Visible="false" OnClick="adduser_Click" Text="+" />
-        <asp:Button CssClass="btn btn-primary" style="margin-left:210px; margin-top:10px" ID="useraddbttn" runat="server" onClick="useraddbttn_Click" Text="Üye Ekle" />
+        <asp:Button CssClass="btn btn-primary" style="margin-left:210px; margin-top:10px" ID="useraddbttn" runat="server" onClick="useraddbttn_Click" Text="Add member" />
     </div>
     <style>
         body{
