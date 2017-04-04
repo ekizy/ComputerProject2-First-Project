@@ -4,7 +4,7 @@
 
     <h2 style="margin-left:450px; margin-top:50px">Destination Restaurants</h2>
 
-      <div style="height: 286px;margin-top: 100px;margin-left:300px;">
+      <div style="height: 286px;margin-top: 10px;margin-left:300px;">
   
     
         <table class="tablestyle1">
@@ -26,6 +26,8 @@
                 </td>
             </tr>
         </table>
+
+          <div style="height:50px;"></div>
 
   
         

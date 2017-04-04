@@ -3,6 +3,13 @@
 <!DOCTYPE html>
 
 <style>
+
+      .tablestyle1{
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      
+  } 
     .Restoran th,tr{
         text-align:center;
     }
@@ -26,12 +33,6 @@
        width: 7px;
   }
 
-  .tablestyle1{
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-      
-  }
 
   .s5{
     border: 1px solid #3a3838;
@@ -68,7 +69,7 @@
 
 </head>
 <body style="background-color:#DDDDDD">
-   <form id="form" runat="server">
+   <form id="form" runat="server" style="height:100%;">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -113,16 +114,16 @@
             </div>
         </div>
         <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+           <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <div style="clear:both; position:fixed; width:100%; padding:5px; bottom:0; text-align:center;">
-            <hr />
-            <footer>
+        </div>
+                   <div style="clear:both; position:fixed;width:100%; padding:5px; bottom:0; text-align:center;">
+                       
+           <!-- <hr />-->
+            <footer style="color:white;">
                 <p >&copy; <%: DateTime.Now.Year %> - NerdenYesek Application</p>
             </footer>
             </div>
-
-        </div>
     </form>
 </body>
 </html>
